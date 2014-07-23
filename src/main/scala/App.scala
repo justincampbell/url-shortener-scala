@@ -5,8 +5,8 @@ class App extends unfiltered.filter.Plan {
   import QParams._
 
   def intent = {
-    case GET(Path("/test")) =>
-      ResponseString("test")
+    case GET(Path("/")) =>
+      Redirect("https://github.com/justincampbell/url-shorteners")
   }
 }
 
