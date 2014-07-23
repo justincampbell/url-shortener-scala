@@ -12,7 +12,8 @@ class App extends unfiltered.filter.Plan {
 
 object Server {
   def main(args: Array[String]) {
-    val http = unfiltered.jetty.Http.anylocal
+    val port = scala.util.Properties.envOrElse("PORT", "8080").toInt
+    val http = unfiltered.jetty.Http.local(port)
     val app = new App
 
     http.filter(app).run()
